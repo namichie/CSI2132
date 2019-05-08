@@ -1,0 +1,14 @@
+category_not_null
+ - Checks if category entry in ingredients table is null
+
+ingredient_name_not_null
+ - Checks whether the name of an ingredient is porvided
+
+ingredient_name_duplicate
+ - Checks if after the insertion of a new ingredient, there exists an ingredient with the same name
+
+meal_name_duplicate
+ - Checks if after the insertion of a new meal, there exists a meal with the same name
+
+unapproved_order
+ - checks the orders table to see if there are orders with attribute order_approved=FALSE

@@ -1,0 +1,32 @@
+CREATE TYPE inventory_item AS (
+    name            text,
+    supplier_id     integer,
+    price           numeric
+);
+
+CREATE TABLE on_hand (
+    item      inventory_item,
+    count     integer
+);
+
+INSERT INTO on_hand VALUES (ROW('fuzzy dice', 42, 1.99), 1000),
+
+/* Literal constant */
+INSERT INTO on_hand 
+values('("fuzzy dice",42,)');
+
+INSERT INTO on_hand 
+values('("",42,)');
+
+INSERT INTO on_hand 
+values (ROW('', 42, NULL));
+
+/* Accessing composite types */
+SELECT (item).name 
+FROM on_hand 
+WHERE (item).price < 9.99;
+
+select * from on_hand;
+
+drop table on_hand
+drop type inventory_item
